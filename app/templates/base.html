@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <title>
+        {% block title %}
+            QR |
+        {% endblock %}
+    </title>
+</head>
+<body>
+    {% block navbar %}
+        {% include 'navbar.html' %}
+    {% endblock %}
+    <!-- show messages -->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="container">
+                <div class="notification {{ category }}">
+                    <button class="delete"></button>
+                    {{ message }}
+              </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <!-- end messages -->
+    {% block content %}
+    {% endblock %}
+    
+</body>
+</html>

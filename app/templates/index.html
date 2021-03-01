@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% import 'macros/macroProduct.html' as macroProduct %}
+{% block title %}
+    {{ super() }}
+    Ventas
+{% endblock %}
+{% block content %}
+    <section class="section">
+        <h1 class="title">Sistema de ventas - QR</h1>
+        <h2 class="subtitle">
+            Bienvenidos al sistema de ventas QR <strong>Asperos Geek</strong>, todos por un mundo más educado y mejor :)
+        </h2>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                {% for product in products %}
+                    {{ macroProduct.render_product(product) }}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

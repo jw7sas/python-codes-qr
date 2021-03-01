@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ super() }}
+    QR
+{% endblock %}
+{% block navbar %}
+    <h1 class="title is-4 px-2 py-2">Generar códigos QR</h1>
+{% endblock %}
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <form method="POST">
+                        <div class="field">
+                            <label class="label">Texto a Código QR</label>
+                            <div class="control">
+                              <input name="text_qr" class="input" type="text" placeholder="Ingrese su texto" autocomplete="off">
+                            </div>
+                            <p class="help">El texto que ingrese, generará un código QR</p>
+                          </div>
+                          <div class="field">
+                              <div class="control">
+                                  <button class="button is-info">Generar QR</button>
+                                </div>
+                          </div>
+                    </form>
+                </div>
+                <div class="column">
+                    <div class="is-flex is-justify-content-center">
+                        <div class="box" style="width: fit-content;">
+                            <figure>
+                                <img src="{{ url_for('get_img_qr', filename='code_qr.png') }}" alt="">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock%}

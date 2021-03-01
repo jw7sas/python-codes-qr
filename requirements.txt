@@ -1,0 +1,4 @@
+qrcode==6.1
+pillow==8.1.0
+pyzbar==0.1.8
+Flask==1.1.2
